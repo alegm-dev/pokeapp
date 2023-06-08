@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/models/pokemon_basic_data.dart';
-import 'package:pokemon_flutter/ui/widgets/pokemon_card_item.dart';
-import 'package:pokemon_flutter/utils/constants.dart' as constants;
+import 'package:pokeapp/models/pokemon_basic_data.dart';
+import 'package:pokeapp/ui/widgets/pokemon_card_item.dart';
+import 'package:pokeapp/utils/constants.dart' as constants;
 
 class SearchedPokemonTerminalWidget extends StatelessWidget {
   final bool isDark;
@@ -30,7 +30,7 @@ class SearchedPokemonTerminalWidget extends StatelessWidget {
         padding: const EdgeInsets.all(constants.largePadding),
         child: Column(
           children: [
-            Text('Click on the Pokemon card for more details',
+            Text('Click en el pokemon para mas detalles',
                 style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: constants.largePadding),
             SizedBox(

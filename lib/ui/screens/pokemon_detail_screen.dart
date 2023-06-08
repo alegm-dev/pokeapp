@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/controllers/pokemon_basic_controller.dart';
-import 'package:pokemon_flutter/controllers/pokemon_favorite_controller.dart';
-import 'package:pokemon_flutter/utils/colors_generator.dart';
-import 'package:pokemon_flutter/utils/constants.dart' as constants;
-import 'package:pokemon_flutter/models/pokemon_basic_data.dart';
+import 'package:pokeapp/controllers/pokemon_basic_controller.dart';
+import 'package:pokeapp/controllers/pokemon_favorite_controller.dart';
+import 'package:pokeapp/utils/constants.dart' as constants;
+import 'package:pokeapp/models/pokemon_basic_data.dart';
 import 'package:provider/provider.dart';
 import '../../controllers/theme_controller.dart';
 import '../widgets/white_sheet_widgets/white_sheet_widget.dart';

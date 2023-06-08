@@ -1,12 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:pokemon_flutter/models/pokemon_basic_data.dart';
+import 'package:pokeapp/models/pokemon_basic_data.dart';
 
 class PokemonMoreInfoService {
   // Fetch pokemon (more info) data
   Future<Map<String, dynamic>> fetchPokemonMoreIndoData(
       PokemonBasicData pokemon) async {
-
     Map<String, dynamic> moreInfo = {};
 
     // convert the pokemon name to lower case so we can use it in the url
@@ -14,7 +13,7 @@ class PokemonMoreInfoService {
 
     try {
       final Uri url =
-      Uri.https('pokeapi.co', 'api/v2/pokemon/$pokemonNameLowerCase');
+          Uri.https('pokeapi.co', 'api/v2/pokemon/$pokemonNameLowerCase');
       final response = await http.get(url);
       if (response.statusCode == 200) {
         var pokemonData = json.decode(response.body);

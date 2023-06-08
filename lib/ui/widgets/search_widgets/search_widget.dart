@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/ui/widgets/search_widgets/search_result_widget.dart';
-import 'package:pokemon_flutter/utils/constants.dart' as constants;
+import 'package:pokeapp/ui/widgets/search_widgets/search_result_widget.dart';
+import 'package:pokeapp/utils/constants.dart' as constants;
 import 'package:provider/provider.dart';
 
 import '../../../controllers/search_controller.dart';
@@ -40,7 +40,9 @@ class _SearchWidgetState extends State<SearchWidget> {
     void updateResultList(String text) {
       setState(() {
         subText = text;
-        resultList = searchList.where((item) => item.toLowerCase().contains(text)).toList();
+        resultList = searchList
+            .where((item) => item.toLowerCase().contains(text))
+            .toList();
       });
     }
 
@@ -50,13 +52,13 @@ class _SearchWidgetState extends State<SearchWidget> {
           Row(
             children: [
               ChoiceChip(
-                  label: Text('Name',
+                  label: Text('Nombre',
                       style: TextStyle(
                           color: isDark
                               ? Colors.white
                               : isNameFilterSelected
-                              ? Colors.white
-                              : Colors.black)),
+                                  ? Colors.white
+                                  : Colors.black)),
                   selectedColor: isDark
                       ? constants.selectedDarkThemeColor
                       : constants.selectedLightThemeColor,
@@ -74,13 +76,13 @@ class _SearchWidgetState extends State<SearchWidget> {
                   }),
               const SizedBox(width: constants.mediumPadding),
               ChoiceChip(
-                  label: Text('Ability',
+                  label: Text('Habilidad',
                       style: TextStyle(
                           color: isDark
                               ? Colors.white
                               : isAbilityFilterSelected
-                              ? Colors.white
-                              : Colors.black)),
+                                  ? Colors.white
+                                  : Colors.black)),
                   selectedColor: isDark
                       ? constants.selectedDarkThemeColor
                       : constants.selectedLightThemeColor,
@@ -103,21 +105,24 @@ class _SearchWidgetState extends State<SearchWidget> {
             child: Column(
               children: [
                 Container(
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: constants.smallPadding),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: constants.smallPadding),
                     height: constants.searchContainerHeight,
                     decoration: BoxDecoration(
                         color: constants.searchContainerLightThemeColor,
-                        borderRadius:
-                        BorderRadius.circular(constants.containerCornerRadius)),
-                    child:  Center(
+                        borderRadius: BorderRadius.circular(
+                            constants.containerCornerRadius)),
+                    child: Center(
                       child: TextField(
                         style: const TextStyle(color: Colors.black),
                         controller: textEditController,
                         cursorColor: constants.leftSearchIconColor,
                         decoration: InputDecoration(
-                            hintText: isNameFilterSelected? 'Type the name of the Pokemon': 'Type the name of the ability',
-                            hintStyle: const TextStyle(color: constants.searchHintTextColor),
+                            hintText: isNameFilterSelected
+                                ? 'Escriba el nombre del pokemon'
+                                : 'Escriba la habilidad del pokemon',
+                            hintStyle: const TextStyle(
+                                color: constants.searchHintTextColor),
                             border: InputBorder.none,
                             // disable the underline in the TextField
                             icon: const Icon(
@@ -136,15 +141,16 @@ class _SearchWidgetState extends State<SearchWidget> {
                         itemCount: resultList.length,
                         itemBuilder: (context, index) {
                           final resultText = resultList[index];
-                          return SearchResultItemWidget(resultText: resultText, nameFilter: isNameFilterSelected);
+                          return SearchResultItemWidget(
+                              resultText: resultText,
+                              nameFilter: isNameFilterSelected);
                         })),
               ],
             ),
           ),
         ],
       ),
-    )
-    ;
+    );
   }
 
   Future<void> fetchAllPokemonsNames() async {
@@ -157,6 +163,3 @@ class _SearchWidgetState extends State<SearchWidget> {
     searchList = searchProvider.pokemonsAbilities;
   }
 }
-
-
-

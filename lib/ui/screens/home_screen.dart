@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/controllers/pokemon_basic_controller.dart';
+import 'package:pokeapp/controllers/pokemon_basic_controller.dart';
 import 'package:provider/provider.dart';
 import '../../controllers/theme_controller.dart';
 import '../widgets/bottom_loading_bar_widget.dart';
 import '../widgets/home_screen_sliver_app_bar.dart';
 import '../widgets/custom_sliver_grid_view.dart';
-import 'package:pokemon_flutter/utils/constants.dart' as constants;
-
+import 'package:pokeapp/utils/constants.dart' as constants;
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "HomeScreen";
@@ -47,22 +46,22 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: constants.mediumPadding),
-            child: CustomScrollView(
-              controller: _scrollController,
-              physics: const BouncingScrollPhysics(),
-              slivers: [
-                const CustomSliverAppBar(),
-                // add space between the appBar and the gridview
-                const SliverToBoxAdapter(
-                    child: SizedBox(height: constants.mediumPadding)),
-                const CustomSliverGridView(),
-                // bottom circular progress indicator show when at the bottom of the grid and fetch new data
-                if (atBottom && loadData) const BottomLoadingBarWidget(),
-                // if at the end of the grid and no more data just add some space to the bottom of the grid
-                if (atBottom && !loadData)
-                  const SliverToBoxAdapter(
-                      child: SizedBox(height: constants.mediumPadding))
-              ],
+            child: SafeArea(
+              child: CustomScrollView(
+                controller: _scrollController,
+                physics: const BouncingScrollPhysics(),
+                slivers: [
+                  const CustomSliverAppBar(),
+                  // the gridview
+                  const CustomSliverGridView(),
+                  // bottom circular progress indicator show when at the bottom of the grid and fetch new data
+                  if (atBottom && loadData) const BottomLoadingBarWidget(),
+                  // if at the end of the grid and no more data just add some space to the bottom of the grid
+                  if (atBottom && !loadData)
+                    const SliverToBoxAdapter(
+                        child: SizedBox(height: constants.mediumPadding))
+                ],
+              ),
             )));
   }
 

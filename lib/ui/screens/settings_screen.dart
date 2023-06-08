@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/utils/constants.dart' as constants;
+import 'package:pokeapp/utils/constants.dart' as constants;
 import 'package:provider/provider.dart';
 
 import '../../controllers/theme_controller.dart';
@@ -18,7 +18,7 @@ class SettingsScreen extends StatelessWidget {
           backgroundColor: isDark
               ? constants.appBarDarkThemeColor
               : constants.appBarLightThemeColor,
-          title: const Text('Settings'),
+          title: const Text('Configuracion'),
           iconTheme: const IconThemeData(color: Colors.white),
         ),
         body: Padding(
@@ -29,7 +29,7 @@ class SettingsScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text('Dark Theme'),
+                  const Text('Tema oscuro'),
                   Switch(
                       activeColor: constants.switchActiveDarkThemeColor,
                       value: isDark,

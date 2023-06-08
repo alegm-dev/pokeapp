@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/ui/widgets/search_widgets/search_widget.dart';
-import 'package:pokemon_flutter/utils/constants.dart' as constants;
+import 'package:pokeapp/ui/widgets/search_widgets/search_widget.dart';
+import 'package:pokeapp/utils/constants.dart' as constants;
 import 'package:provider/provider.dart';
 
 import '../../controllers/theme_controller.dart';
@@ -18,7 +18,7 @@ class SearchScreen extends StatelessWidget {
         backgroundColor: isDark
             ? constants.appBarDarkThemeColor
             : constants.appBarLightThemeColor,
-        title: const Text('Search Pokemons'),
+        title: const Text('Buscar pokemon'),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Padding(
@@ -26,7 +26,7 @@ class SearchScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Search Pokemons By:',
+            Text('Buscar por:',
                 style: Theme.of(context).textTheme.headline6?.copyWith(
                       color: isDark
                           ? constants.chooseFilterTextDarkThemeColor

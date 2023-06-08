@@ -1,17 +1,15 @@
 import 'package:flutter/cupertino.dart';
-import 'package:pokemon_flutter/services/pokemon_basic_service.dart';
+import 'package:pokeapp/services/pokemon_basic_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/pokemon_basic_data.dart';
 
 class PokemonFavoritesController with ChangeNotifier {
-
   PokemonBasicDataService pokemonBasicDataService = PokemonBasicDataService();
 
   // handle favorite pokemons
   late SharedPreferences prefs;
 
   List<String> _favoritePokemonsNames = [];
-
 
   List<PokemonBasicData> _favoritePokemons = [];
 
@@ -21,8 +19,7 @@ class PokemonFavoritesController with ChangeNotifier {
 
   // sort a list alphabetically descending
   void sortList(List<String> savedPokemons) {
-    savedPokemons
-      .sort((item1, item2) => item1.compareTo(item2));
+    savedPokemons.sort((item1, item2) => item1.compareTo(item2));
   }
 
   // toggle pokemons from sharedPreferences

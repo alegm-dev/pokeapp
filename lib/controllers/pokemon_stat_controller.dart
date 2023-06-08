@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/models/pokemon_basic_data.dart';
-import 'package:pokemon_flutter/services/pokemon_stats_service.dart';
+import 'package:pokeapp/models/pokemon_basic_data.dart';
+import 'package:pokeapp/services/pokemon_stats_service.dart';
 
 import '../models/pokemon_stats_data.dart';
 

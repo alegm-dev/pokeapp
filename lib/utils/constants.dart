@@ -5,42 +5,43 @@ const Color scaffoldLightThemeColor = Color.fromRGBO(245, 251, 251, 1);
 const Color scaffoldDarkThemeColor = Colors.black;
 
 // HomeScreen title properties
-const String homeScreenTitle = "Pokédex";
+const String homeScreenTitle = "PokéApp";
 const Color homeScreenTitleLightThemeColor = Color.fromRGBO(54, 48, 83, 1);
 const Color homeScreenTitleDarkThemeColor = Colors.white;
 
 // HomeScreen subtitle properties
 const String homeScreenSubtitle =
-    "Search for Pokemon by name or tap on a Pokemon card to know more about it.";
+    "Busca por nombre o por habilidad y toca una carta para saber más informacion sobre el Pokemon";
 const Color homesScreenSubtitleLightThemeColor = Color.fromRGBO(93, 95, 123, 1);
-const Color homesScreenSubtitleDarkThemeColor = Color.fromRGBO(235, 243, 245, 1);
+const Color homesScreenSubtitleDarkThemeColor =
+    Color.fromRGBO(235, 243, 245, 1);
 
 // HomeScreen settings icon properties
 const Color searchIconLightThemeColor = Color.fromRGBO(54, 48, 83, 1);
 const Color searchIconDarkThemeColor = Colors.white;
 
-
 // HomeScreen search container properties
-const String searchHintText = "Name of the Pokemon";
+const String searchHintText = "Escriba el nombre del pokemon";
 const double searchContainerHeight = 64;
 const Color searchHintTextColor = Color.fromRGBO(149, 151, 174, 1);
 const Color leftSearchIconColor = Color.fromRGBO(90, 94, 121, 1);
 const Color searchContainerLightThemeColor = Color.fromRGBO(235, 243, 245, 1);
-const Color searchContainerCursorLightThemeColor = Color.fromRGBO(90, 94, 121, 1);
-
+const Color searchContainerCursorLightThemeColor =
+    Color.fromRGBO(90, 94, 121, 1);
 
 // HomeScreen favoriteIconContainer
 const double favoriteIconHeightAndWidth = 64;
-const Color favoriteIconContainerLightThemeColor = Color.fromRGBO(93, 95, 122, 1);
+const Color favoriteIconContainerLightThemeColor =
+    Color.fromRGBO(93, 95, 122, 1);
 const Color favoriteIconLightThemeColor = Colors.white;
-const Color favoriteIconContainerDarkThemeColor =  Colors.redAccent;
+const Color favoriteIconContainerDarkThemeColor = Colors.redAccent;
 const Color favoriteIconDarkThemeColor = Colors.white;
 
 // HomeScreen Pokemon card (note that we gonna generate the color for the card itself dynamically)
 const Color pokemonNameLightThemeColor = Color.fromRGBO(54, 48, 83, 1);
 const Color pokemonIdLightThemeColor = Color.fromRGBO(93, 95, 123, .6);
 const Color pokemonNameDarkThemeColor = Colors.white;
-const Color pokemonIdDarkThemeColor = Color.fromRGBO(235, 243, 245, 1);
+const Color pokemonIdDarkThemeColor = Color.fromRGBO(235, 243, 245, .6);
 
 // PokemonDetailScreen
 const Color backIconLightThemeColor = Color.fromRGBO(54, 48, 83, 1);
@@ -64,11 +65,8 @@ const Color selectedLightThemeColor = Color.fromRGBO(54, 48, 83, 1);
 const Color settingsScreenLightThemeColor = Color.fromRGBO(245, 251, 251, 1);
 const Color switchActiveDarkThemeColor = Colors.blueGrey;
 
-
-
 // CircularProgressIndicator
-const Color circularProgressIndicatorColor =
-    Color.fromRGBO(93, 95, 122, 1);
+const Color circularProgressIndicatorColor = Color.fromRGBO(93, 95, 122, 1);
 
 // Custom horizontal scrollbar
 const Color customHorizontalScrollbarLightThemeColor = Colors.black;
@@ -77,13 +75,13 @@ const Color appBarLightThemeColor = Color.fromRGBO(54, 48, 83, 1);
 const Color appBarDarkThemeColor = Colors.black;
 
 // Dims
-const double homeScreenSliverAppBarHeight = 220.0;
+const double homeScreenSliverAppBarHeight = 80.0;
 
-const double screenTopPadding = 24;
-const double screenHorizontalPadding = 24;
+const double screenTopPadding = 8;
+const double screenHorizontalPadding = 12;
 const double smallPadding = 8;
-const double mediumPadding = 16;
+const double mediumPadding = 12;
 const double largePadding = 32;
 const double hugePadding = 64;
 
-const double containerCornerRadius = 12;
+const double containerCornerRadius = 8;

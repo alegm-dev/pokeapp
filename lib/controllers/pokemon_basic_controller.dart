@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/services/pokemon_basic_service.dart';
+import 'package:pokeapp/services/pokemon_basic_service.dart';
 
 import '../models/pokemon_basic_data.dart';
 

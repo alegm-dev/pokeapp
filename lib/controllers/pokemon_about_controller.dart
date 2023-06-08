@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/models/pokemon_basic_data.dart';
-import 'package:pokemon_flutter/services/pokemon_about_data_service.dart';
+import 'package:pokeapp/models/pokemon_basic_data.dart';
+import 'package:pokeapp/services/pokemon_about_data_service.dart';
 
 import '../models/pokemon_about_data.dart';
 
 class PokemonAboutDataController with ChangeNotifier {
-
   // create an instance of the basicDataService class
   final pokemonAboutDataService = PokemonAboutDataService();
 

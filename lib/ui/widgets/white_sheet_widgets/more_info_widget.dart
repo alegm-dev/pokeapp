@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/models/pokemon_more_info_data.dart';
+import 'package:pokeapp/models/pokemon_more_info_data.dart';
 
 import '../../../models/pokemon_basic_data.dart';
 import 'pokemon_info_list_widget.dart';
 import 'title_and_subtitle_widget.dart';
-import 'package:pokemon_flutter/utils/constants.dart' as constants;
+import 'package:pokeapp/utils/constants.dart' as constants;
 
 class MoreInfoWidget extends StatelessWidget {
   final PokemonBasicData pokemon;
@@ -13,11 +13,11 @@ class MoreInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     int height = 0;
-     int weight = 0;
-     List<String> types = [];
-     // List<String> moves = [];
-     List<String> abilities = [];
+    int height = 0;
+    int weight = 0;
+    List<String> types = [];
+    // List<String> moves = [];
+    List<String> abilities = [];
     if (pokemon.pokemonMoreInfoData != null) {
       final PokemonMoreInfoData pokemonMoreInfoData =
           pokemon.pokemonMoreInfoData!;
@@ -38,15 +38,16 @@ class MoreInfoWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TitleAndSubtitleWidget(
-                title: 'Height', subtitle: height.toString()),
+                title: 'Altura', subtitle: height.toString()),
             TitleAndSubtitleWidget(
-                title: 'Weight', subtitle: weight.toString()),
+                title: 'Anchura', subtitle: weight.toString()),
             // types names list
-            PokemonInfoListWidget(listTitle: 'Types', pokemonData: types),
+            PokemonInfoListWidget(listTitle: 'Tipo', pokemonData: types),
             // moves names list
             // PokemonInfoListWidget(listTitle: 'Moves', pokemonData: moves),
             // abilities names list
-            PokemonInfoListWidget(listTitle: 'Abilities', pokemonData: abilities),
+            PokemonInfoListWidget(
+                listTitle: 'Habilidad', pokemonData: abilities),
           ],
         ),
       ),

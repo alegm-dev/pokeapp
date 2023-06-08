@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/models/pokemon_basic_data.dart';
-import 'package:pokemon_flutter/utils/constants.dart' as constants;
-import 'package:pokemon_flutter/ui/widgets/white_sheet_widgets/stat_bar_widget.dart';
+import 'package:pokeapp/models/pokemon_basic_data.dart';
+import 'package:pokeapp/utils/constants.dart' as constants;
+import 'package:pokeapp/ui/widgets/white_sheet_widgets/stat_bar_widget.dart';
 
 class StatsWidget extends StatelessWidget {
   final PokemonBasicData pokemon;
@@ -16,15 +16,15 @@ class StatsWidget extends StatelessWidget {
 
     if (pokemonStats != null) {
       stats = [
-        {'statTitle': 'Hp', 'statNumber': pokemonStats.hp!},
-        {'statTitle': 'Attack', 'statNumber': pokemonStats.attack!},
-        {'statTitle': 'Defence', 'statNumber': pokemonStats.defense!},
-        {'statTitle': 'Sp. Attack', 'statNumber': pokemonStats.specialAttack!},
+        {'statTitle': 'Vida', 'statNumber': pokemonStats.hp!},
+        {'statTitle': 'Ataque', 'statNumber': pokemonStats.attack!},
+        {'statTitle': 'Defensa', 'statNumber': pokemonStats.defense!},
+        {'statTitle': 'Sp. Ataque', 'statNumber': pokemonStats.specialAttack!},
         {
-          'statTitle': 'Sp. Defence',
+          'statTitle': 'Sp. Defensa',
           'statNumber': pokemonStats.specialDefence!
         },
-        {'statTitle': 'Speed', 'statNumber': pokemonStats.speed!}
+        {'statTitle': 'Velocidad', 'statNumber': pokemonStats.speed!}
       ];
     }
 
@@ -46,4 +46,3 @@ class StatsWidget extends StatelessWidget {
     );
   }
 }
-

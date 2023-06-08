@@ -11,13 +11,7 @@ class ColorsGenerator {
       final paletteGenerator = await PaletteGenerator.fromImageProvider(
           NetworkImage(pokemonImageUrl));
       // get the domain color from the pokemon image
-      if (paletteGenerator.dominantColor != null) {
-        if (isDarkTheme) {
-          cardColor = paletteGenerator.dominantColor!.color.withAlpha(500);
-        } else {
-          cardColor = paletteGenerator.dominantColor!.color.withOpacity(0.25);
-        }
-      }
+      cardColor = paletteGenerator.dominantColor!.color.withAlpha(500);
     } catch (error) {
       rethrow;
     }

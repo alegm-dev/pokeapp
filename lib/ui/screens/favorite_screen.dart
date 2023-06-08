@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/controllers/pokemon_favorite_controller.dart';
-import 'package:pokemon_flutter/ui/widgets/custom_sliver_grid_view.dart';
+import 'package:pokeapp/controllers/pokemon_favorite_controller.dart';
+import 'package:pokeapp/ui/widgets/custom_sliver_grid_view.dart';
 import 'package:provider/provider.dart';
 
 import '../../controllers/theme_controller.dart';
-import 'package:pokemon_flutter/utils/constants.dart' as constants;
+import 'package:pokeapp/utils/constants.dart' as constants;
 
 class FavoriteScreen extends StatefulWidget {
   static const routeName = 'FavoriteScreen';
@@ -37,15 +37,16 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                 child: CircularProgressIndicator(
                     color: constants.circularProgressIndicatorColor));
           } else {
-            return  CustomScrollView(
+            return CustomScrollView(
               slivers: [
                 SliverAppBar(
                   title: const Text('Favorite Pokemons'),
-                  backgroundColor: isDark? constants.appBarDarkThemeColor: constants.appBarLightThemeColor,
+                  backgroundColor: isDark
+                      ? constants.appBarDarkThemeColor
+                      : constants.appBarLightThemeColor,
                 ),
                 const SliverPadding(
-                  padding:
-                      EdgeInsets.all(constants.mediumPadding),
+                  padding: EdgeInsets.all(constants.mediumPadding),
                   sliver: CustomSliverGridView(showFavorites: true),
                 ),
               ],

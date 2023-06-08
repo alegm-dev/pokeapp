@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/utils/constants.dart' as constants;
+import 'package:pokeapp/utils/constants.dart' as constants;
 
 class StatRowWidget extends StatefulWidget {
   final String statTitle;
   final int statNumber;
 
-  const StatRowWidget({Key? key, required this.statTitle, required this.statNumber})
+  const StatRowWidget(
+      {Key? key, required this.statTitle, required this.statNumber})
       : super(key: key);
 
   @override
@@ -29,8 +30,7 @@ class _StatRowWidgetState extends State<StatRowWidget> {
       return Colors.red;
     } else if (statNumber > 50 && statNumber <= 65) {
       return Colors.orange;
-    }
-    else {
+    } else {
       return Colors.green;
     }
   }
@@ -62,44 +62,44 @@ class _StatRowWidgetState extends State<StatRowWidget> {
         Row(
           children: [
             SizedBox(
-              // give the stat title width depend on the longest text which is sp. Defence
+                // give the stat title width depend on the longest text which is sp. Defence
                 width: ('sp. Defence').length * 7,
                 child: Text(
                   statTitle,
                   style: const TextStyle(
-                      color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 14),
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14),
                 )),
             const SizedBox(width: constants.mediumPadding),
             Text(statNumber.toString(),
                 style: const TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(width: constants.mediumPadding),
             Expanded(
-              child: LayoutBuilder(
-                  builder: (_, constraints) {
-                    return Stack(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: constants.searchContainerLightThemeColor,
-                            borderRadius: BorderRadius.circular(200),
-                          ),
-                          height: 20,
-                        ),
-
-                        AnimatedContainer(
-                          duration: const Duration(milliseconds: 800),
-                          curve: Curves.linear,
-                          height: 20,
-                          width: loadStat? statPercentage * constraints.maxWidth: 0,
-                          decoration: BoxDecoration(
-                            color: statColor(statNumber),
-                            borderRadius: BorderRadius.circular(200),
-                          ),
-                        ),
-                      ],
-                    );
-                  }
-              ),
+              child: LayoutBuilder(builder: (_, constraints) {
+                return Stack(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: constants.searchContainerLightThemeColor,
+                        borderRadius: BorderRadius.circular(200),
+                      ),
+                      height: 20,
+                    ),
+                    AnimatedContainer(
+                      duration: const Duration(milliseconds: 800),
+                      curve: Curves.linear,
+                      height: 20,
+                      width:
+                          loadStat ? statPercentage * constraints.maxWidth : 0,
+                      decoration: BoxDecoration(
+                        color: statColor(statNumber),
+                        borderRadius: BorderRadius.circular(200),
+                      ),
+                    ),
+                  ],
+                );
+              }),
             )
           ],
         ),

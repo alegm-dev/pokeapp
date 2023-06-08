@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/models/pokemon_about_data.dart';
-import 'package:pokemon_flutter/models/pokemon_more_info_data.dart';
-import 'package:pokemon_flutter/models/pokemon_stats_data.dart';
+import 'package:pokeapp/models/pokemon_about_data.dart';
+import 'package:pokeapp/models/pokemon_more_info_data.dart';
+import 'package:pokeapp/models/pokemon_stats_data.dart';
 
 class PokemonBasicData {
   final String name;

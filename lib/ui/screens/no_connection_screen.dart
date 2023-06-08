@@ -7,9 +7,9 @@ class NoConnectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Column(
-        children: const [
+        children: [
           Icon(Icons.signal_wifi_connected_no_internet_4_rounded, size: 48),
           Text('Please Check Your Internet Connection')
         ],

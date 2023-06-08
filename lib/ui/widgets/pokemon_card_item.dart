@@ -52,49 +52,85 @@ class _PokemonCardItemState extends State<PokemonCardItem> {
       },
       child: Builder(builder: (context) {
         if (colorReady) {
-          return Container(
-            padding: const EdgeInsets.all(constants.mediumPadding),
-            decoration: BoxDecoration(
-                color: cardColor,
-                borderRadius:
-                    BorderRadius.circular(constants.containerCornerRadius)),
-            child: Column(
-              children: [
-                Hero(
-                  tag: pokemonBasicInfo.name,
-                  child: CachedNetworkImage(
-                    imageUrl: widget.imageUrl,
-                    fit: BoxFit.cover,
-                    height: 110,
-                    width: 100,
-                    fadeInDuration: const Duration(milliseconds: 150),
-                    fadeOutDuration: const Duration(milliseconds: 150),
-                    errorWidget: (context, url, error) =>
-                        const Icon(Icons.error),
+          return Stack(
+            children: [
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  width: double.infinity,
+                  height: 130.0,
+                  decoration: BoxDecoration(
+                      color: cardColor,
+                      borderRadius: BorderRadius.circular(10)),
+                ),
+              ),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Opacity(
+                  opacity: 0.2,
+                  child: Image.asset(
+                    'assets/images/pokeball_illustrator.png',
+                    width: 120.0,
+                    height: 120.0,
                   ),
                 ),
-                Text(
-                  pokemonBasicInfo.name,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      color: isDark
-                          ? constants.pokemonNameDarkThemeColor.withOpacity(0.9)
-                          : constants.pokemonNameLightThemeColor,
-                      fontWeight: FontWeight.bold,
-                      fontSize:
-                          Theme.of(context).textTheme.headline6?.fontSize),
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Hero(
+                    tag: pokemonBasicInfo.name,
+                    child: CachedNetworkImage(
+                      imageUrl: widget.imageUrl,
+                      width: 165.0,
+                      fit: BoxFit.cover,
+                      fadeInDuration: const Duration(milliseconds: 150),
+                      fadeOutDuration: const Duration(milliseconds: 150),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
+                    ),
+                  ),
                 ),
-                Text(widget.id,
-                    style: TextStyle(
-                        color: isDark
-                            ? constants.pokemonIdDarkThemeColor.withOpacity(0.9)
-                            : constants.pokemonIdLightThemeColor,
-                        fontSize: Theme.of(context)
-                            .textTheme
-                            .headlineSmall
-                            ?.fontSize)),
-              ],
-            ),
+              ),
+              Positioned(
+                top: 0,
+                bottom: 0,
+                left: 10,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Align(
+                      child: Text(
+                        widget.id,
+                        style: TextStyle(
+                          color: constants.pokemonIdDarkThemeColor
+                              .withOpacity(0.2),
+                          fontSize: 100.0,
+                          //Theme.of(context).textTheme.titleLarge?.fontSize,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Text(
+                        pokemonBasicInfo.name,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                            color: constants.pokemonNameLightThemeColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 35.0
+                            //Theme.of(context).textTheme.titleLarge?.fontSize,
+                            ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           );
         } else {
           return const Center(

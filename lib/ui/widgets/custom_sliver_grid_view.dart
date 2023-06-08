@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/controllers/pokemon_basic_controller.dart';
-import 'package:pokemon_flutter/models/pokemon_basic_data.dart';
-import 'package:pokemon_flutter/ui/widgets/pokemon_card_item.dart';
+import 'package:pokeapp/controllers/pokemon_basic_controller.dart';
+import 'package:pokeapp/models/pokemon_basic_data.dart';
+import 'package:pokeapp/ui/widgets/pokemon_card_item.dart';
 import 'package:provider/provider.dart';
 
 import '../../controllers/pokemon_favorite_controller.dart';
@@ -43,10 +43,10 @@ class CustomSliverGridView extends StatelessWidget {
                 imageUrl: imageUrl);
           }, childCount: pokemons.length),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
+            crossAxisCount: 1,
             crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            mainAxisExtent: 200,
+            mainAxisSpacing: 1,
+            mainAxisExtent: 150,
           ));
     });
   }

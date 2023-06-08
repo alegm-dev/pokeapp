@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter/services/pokemon_basic_service.dart';
-import 'package:pokemon_flutter/services/pokemons_search_service.dart';
-import 'package:pokemon_flutter/utils/colors_generator.dart';
+import 'package:pokeapp/services/pokemon_basic_service.dart';
+import 'package:pokeapp/services/pokemons_search_service.dart';
+import 'package:pokeapp/utils/colors_generator.dart';
 
 import '../models/pokemon_basic_data.dart';
 
@@ -20,7 +20,6 @@ class SearchPokemonsController with ChangeNotifier {
   List<String> get pokemonsAbilities {
     return [..._pokemonsAbilities];
   }
-
 
   // get all pokemons names
   Future<void> getAllPokemonsNames() async {
@@ -61,11 +60,11 @@ class SearchPokemonsController with ChangeNotifier {
     return pokemonData;
   }
 
-
   // get pokemons by ability
   Future<Map<String, dynamic>> getAbilityData(String ability) async {
     Map<String, dynamic> abilityData = {};
-    final fetchedAbilityData = await pokemonSearchService.getAbilityData(ability);
+    final fetchedAbilityData =
+        await pokemonSearchService.getAbilityData(ability);
     abilityData = {
       'flavorText': fetchedAbilityData['flavorText'],
       'pokemonsNames': fetchedAbilityData['pokemonsNames'],
