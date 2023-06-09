@@ -42,7 +42,7 @@ class SettingsScreen extends StatelessWidget {
               const SizedBox(height: constants.smallPadding),
               const Divider(height: 5),
               const SizedBox(height: constants.smallPadding),
-              const Text('App Version: 1.0.0'),
+              const Text('App Version: 1.0.1'),
               const SizedBox(height: constants.mediumPadding),
               const Divider(height: 5),
               const SizedBox(height: constants.smallPadding),

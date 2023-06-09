@@ -32,7 +32,6 @@ class SearchedPokemonTerminalWidget extends StatelessWidget {
           children: [
             Text('Click en el pokemon para mas detalles',
                 style: Theme.of(context).textTheme.titleMedium),
-            const SizedBox(height: constants.largePadding),
             SizedBox(
               width: double.infinity,
               child: PokemonCardItem(

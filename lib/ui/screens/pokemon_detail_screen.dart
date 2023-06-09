@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:pokeapp/controllers/pokemon_basic_controller.dart';
 import 'package:pokeapp/controllers/pokemon_favorite_controller.dart';

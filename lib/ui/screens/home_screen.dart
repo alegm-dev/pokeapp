@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokeapp/controllers/pokemon_basic_controller.dart';
+import 'package:pokeapp/ui/widgets/floating_action_menu.dart';
 import 'package:provider/provider.dart';
 import '../../controllers/theme_controller.dart';
 import '../widgets/bottom_loading_bar_widget.dart';
@@ -40,29 +41,33 @@ class _HomeScreenState extends State<HomeScreen> {
     final ThemeData themeData = Provider.of<ThemeController>(context).themeData;
     bool isDark = themeData == ThemeData.dark();
     return Scaffold(
-        backgroundColor: isDark
-            ? constants.scaffoldDarkThemeColor
-            : constants.scaffoldLightThemeColor,
-        body: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: constants.mediumPadding),
-            child: SafeArea(
-              child: CustomScrollView(
-                controller: _scrollController,
-                physics: const BouncingScrollPhysics(),
-                slivers: [
-                  const CustomSliverAppBar(),
-                  // the gridview
-                  const CustomSliverGridView(),
-                  // bottom circular progress indicator show when at the bottom of the grid and fetch new data
-                  if (atBottom && loadData) const BottomLoadingBarWidget(),
-                  // if at the end of the grid and no more data just add some space to the bottom of the grid
-                  if (atBottom && !loadData)
-                    const SliverToBoxAdapter(
-                        child: SizedBox(height: constants.mediumPadding))
-                ],
-              ),
-            )));
+      backgroundColor: isDark
+          ? constants.scaffoldDarkThemeColor
+          : constants.scaffoldLightThemeColor,
+      body: Padding(
+        padding:
+            const EdgeInsets.symmetric(horizontal: constants.mediumPadding),
+        child: SafeArea(
+          child: CustomScrollView(
+            controller: _scrollController,
+            physics: const BouncingScrollPhysics(),
+            slivers: [
+              const CustomSliverAppBar(),
+              // the gridview
+              const CustomSliverGridView(),
+              // bottom circular progress indicator show when at the bottom of the grid and fetch new data
+              if (atBottom && loadData) const BottomLoadingBarWidget(),
+              // if at the end of the grid and no more data just add some space to the bottom of the grid
+              if (atBottom && !loadData)
+                const SliverToBoxAdapter(
+                  child: SizedBox(height: constants.mediumPadding),
+                ),
+            ],
+          ),
+        ),
+      ),
+      floatingActionButton: const FloatingActionMenu(),
+    );
   }
 
   Future<void> fetchPokemons() async {

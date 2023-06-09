@@ -36,7 +36,6 @@ class _PokemonCardItemState extends State<PokemonCardItem> {
 
   @override
   Widget build(BuildContext context) {
-    final bool isDark = widget.isDark;
     final pokemonBasicInfo = widget.pokemon;
 
     // update ids and imageUrls
@@ -53,6 +52,7 @@ class _PokemonCardItemState extends State<PokemonCardItem> {
       child: Builder(builder: (context) {
         if (colorReady) {
           return Stack(
+            alignment: Alignment.bottomCenter,
             children: [
               Align(
                 alignment: Alignment.bottomCenter,
@@ -93,38 +93,29 @@ class _PokemonCardItemState extends State<PokemonCardItem> {
                   ),
                 ),
               ),
-              Positioned(
-                top: 0,
-                bottom: 0,
-                left: 10,
+              Container(
+                alignment: Alignment.centerLeft,
+                margin: const EdgeInsetsDirectional.symmetric(horizontal: 20.0),
                 child: Stack(
-                  alignment: Alignment.center,
+                  alignment: Alignment.bottomCenter,
                   children: [
-                    Align(
-                      child: Text(
-                        widget.id,
-                        style: TextStyle(
-                          color: constants.pokemonIdDarkThemeColor
-                              .withOpacity(0.2),
-                          fontSize: 100.0,
-                          //Theme.of(context).textTheme.titleLarge?.fontSize,
-                        ),
+                    Text(
+                      widget.id,
+                      style: TextStyle(
+                        color:
+                            constants.pokemonIdDarkThemeColor.withOpacity(0.2),
+                        fontSize: 100.0,
+                        //Theme.of(context).textTheme.titleLarge?.fontSize,
                       ),
                     ),
-                    const SizedBox(
-                      height: 10.0,
-                    ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Text(
-                        pokemonBasicInfo.name,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                            color: constants.pokemonNameLightThemeColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 35.0
-                            //Theme.of(context).textTheme.titleLarge?.fontSize,
-                            ),
+                    Text(
+                      pokemonBasicInfo.name,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: constants.pokemonNameLightThemeColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 35.0,
+                        //Theme.of(context).textTheme.titleLarge?.fontSize,
                       ),
                     ),
                   ],

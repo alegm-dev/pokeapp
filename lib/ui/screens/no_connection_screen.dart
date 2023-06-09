@@ -11,7 +11,7 @@ class NoConnectionWidget extends StatelessWidget {
       child: Column(
         children: [
           Icon(Icons.signal_wifi_connected_no_internet_4_rounded, size: 48),
-          Text('Please Check Your Internet Connection')
+          Text('Por favor revisa la conexion a internet')
         ],
       ),
     );
