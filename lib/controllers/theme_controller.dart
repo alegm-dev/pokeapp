@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+/// The ThemeController class allows for toggling between light and dark themes in a Flutter app using
+/// shared preferences.
 class ThemeController with ChangeNotifier {
   late ThemeData _themeData;
   // create an instance of sharedPreferences
-  late  SharedPreferences prefs;
+  late SharedPreferences prefs;
 
   ThemeData dark = ThemeData.dark().copyWith();
 
@@ -28,6 +30,4 @@ class ThemeController with ChangeNotifier {
     }
     notifyListeners();
   }
-
-
 }

@@ -30,7 +30,7 @@ const Color searchContainerCursorLightThemeColor =
     Color.fromRGBO(90, 94, 121, 1);
 
 // HomeScreen favoriteIconContainer
-const double favoriteIconHeightAndWidth = 50;
+const double favoriteIconHeightAndWidth = 60;
 const Color favoriteIconContainerLightThemeColor =
     Color.fromRGBO(93, 95, 122, 1);
 const Color favoriteIconLightThemeColor = Colors.white;
@@ -84,4 +84,4 @@ const double mediumPadding = 12;
 const double largePadding = 32;
 const double hugePadding = 64;
 
-const double containerCornerRadius = 8;
+const double containerCornerRadius = 50;

@@ -23,6 +23,14 @@ class FloatingActionMenu extends StatelessWidget {
                 : constants.favoriteIconContainerLightThemeColor,
             borderRadius:
                 BorderRadius.circular(constants.containerCornerRadius),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black54.withOpacity(0.5),
+                spreadRadius: 2.0,
+                blurRadius: 5.0,
+                offset: const Offset(0, 5), // Desplazamiento de la sombra
+              ),
+            ],
           ),
           child: IconButton(
             icon: const Icon(Icons.favorite_rounded),
@@ -42,6 +50,7 @@ class FloatingActionMenu extends StatelessWidget {
           backgroundColor: isDark
               ? constants.homeScreenTitleDarkThemeColor
               : constants.homeScreenTitleLightThemeColor,
+          elevation: 10.0,
           child: const Icon(
             Icons.search,
             color: constants.leftSearchIconColor,

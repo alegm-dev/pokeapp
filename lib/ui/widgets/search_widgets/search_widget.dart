@@ -105,46 +105,53 @@ class _SearchWidgetState extends State<SearchWidget> {
             child: Column(
               children: [
                 Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: constants.smallPadding),
-                    height: constants.searchContainerHeight,
-                    decoration: BoxDecoration(
-                        color: constants.searchContainerLightThemeColor,
-                        borderRadius: BorderRadius.circular(
-                            constants.containerCornerRadius)),
-                    child: Center(
-                      child: TextField(
-                        style: const TextStyle(color: Colors.black),
-                        controller: textEditController,
-                        cursorColor: constants.leftSearchIconColor,
-                        decoration: InputDecoration(
-                            hintText: isNameFilterSelected
-                                ? 'Escriba el nombre del pokemon'
-                                : 'Escriba la habilidad del pokemon',
-                            hintStyle: const TextStyle(
-                                color: constants.searchHintTextColor),
-                            border: InputBorder.none,
-                            // disable the underline in the TextField
-                            icon: const Icon(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: constants.smallPadding),
+                  height: constants.searchContainerHeight,
+                  decoration: BoxDecoration(
+                      color: constants.searchContainerLightThemeColor,
+                      borderRadius: BorderRadius.circular(
+                          constants.containerCornerRadius)),
+                  child: Center(
+                    child: TextField(
+                      style: const TextStyle(color: Colors.black),
+                      controller: textEditController,
+                      cursorColor: constants.leftSearchIconColor,
+                      decoration: InputDecoration(
+                          hintText: isNameFilterSelected
+                              ? 'Escriba el nombre del pokemon'
+                              : 'Escriba la habilidad del pokemon',
+                          hintStyle: const TextStyle(
+                              color: constants.searchHintTextColor),
+                          border: InputBorder.none,
+                          // disable the underline in the TextField
+                          icon: const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10.0),
+                            child: Icon(
                               Icons.search,
                               color: constants.leftSearchIconColor,
-                            )),
-                        onChanged: (value) {
-                          updateResultList(value);
-                        },
-                      ),
-                    )),
+                            ),
+                          )),
+                      onChanged: (value) {
+                        updateResultList(value);
+                      },
+                    ),
+                  ),
+                ),
                 const SizedBox(height: constants.mediumPadding),
                 Expanded(
-                    child: ListView.builder(
-                        physics: const BouncingScrollPhysics(),
-                        itemCount: resultList.length,
-                        itemBuilder: (context, index) {
-                          final resultText = resultList[index];
-                          return SearchResultItemWidget(
-                              resultText: resultText,
-                              nameFilter: isNameFilterSelected);
-                        })),
+                  child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: resultList.length,
+                    itemBuilder: (context, index) {
+                      final resultText = resultList[index];
+                      return SearchResultItemWidget(
+                        resultText: resultText,
+                        nameFilter: isNameFilterSelected,
+                      );
+                    },
+                  ),
+                ),
               ],
             ),
           ),

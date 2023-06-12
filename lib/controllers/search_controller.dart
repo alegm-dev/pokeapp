@@ -6,6 +6,8 @@ import 'package:pokeapp/utils/colors_generator.dart';
 
 import '../models/pokemon_basic_data.dart';
 
+/// The SearchPokemonsController class is a Dart class that provides methods for fetching and returning
+/// data related to Pokemon names, abilities, and basic data.
 class SearchPokemonsController with ChangeNotifier {
   PokemonsSearchService pokemonSearchService = PokemonsSearchService();
 

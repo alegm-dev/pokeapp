@@ -11,23 +11,24 @@ import 'package:pokeapp/ui/screens/home_screen.dart';
 import 'package:pokeapp/ui/screens/pokemon_detail_screen.dart';
 import 'package:pokeapp/ui/screens/search_screen.dart';
 import 'package:pokeapp/ui/screens/settings_screen.dart';
+import 'package:pokeapp/ui/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SharedPreferences.getInstance().then((prefs) {
-    var isDarkTheme =
-        prefs.getBool("isDark") ?? true; // theme is dark by default
-    runApp(ChangeNotifierProvider<ThemeController>(
-      child: const MyApp(),
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  var isDarkTheme = prefs.getBool("isDark") ?? true; // theme is dark by default
+  runApp(
+    ChangeNotifierProvider<ThemeController>(
       create: (_) => ThemeController(isDarkTheme),
-    ));
-  });
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -41,22 +42,25 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => PokemonFavoritesController()),
         ChangeNotifierProvider(create: (_) => SearchPokemonsController()),
       ],
-      child: Consumer<ThemeController>(builder: (context, provider, ch) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: provider.themeData,
-          title: 'Flutter Demo',
-          initialRoute: HomeScreen.routeName,
-          routes: {
-            HomeScreen.routeName: (context) => const HomeScreen(),
-            PokemonDetailScreen.routeName: (context) =>
-                const PokemonDetailScreen(),
-            SettingsScreen.routeName: (context) => const SettingsScreen(),
-            FavoriteScreen.routeName: (context) => const FavoriteScreen(),
-            SearchScreen.routeName: (context) => const SearchScreen(),
-          },
-        );
-      }),
+      child: Consumer<ThemeController>(
+        builder: (context, provider, ch) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: provider.themeData,
+            title: 'Flutter Demo',
+            initialRoute: SplashScreen.routeName,
+            routes: {
+              SplashScreen.routeName: (context) => const SplashScreen(),
+              HomeScreen.routeName: (context) => const HomeScreen(),
+              PokemonDetailScreen.routeName: (context) =>
+                  const PokemonDetailScreen(),
+              SettingsScreen.routeName: (context) => const SettingsScreen(),
+              FavoriteScreen.routeName: (context) => const FavoriteScreen(),
+              SearchScreen.routeName: (context) => const SearchScreen(),
+            },
+          );
+        },
+      ),
     );
   }
 }

@@ -75,6 +75,34 @@ class _PokemonCardItemState extends State<PokemonCardItem> {
                   ),
                 ),
               ),
+              Container(
+                alignment: Alignment.centerLeft,
+                margin: const EdgeInsetsDirectional.symmetric(horizontal: 20.0),
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
+                    Text(
+                      widget.id,
+                      style: TextStyle(
+                        color:
+                            constants.pokemonIdDarkThemeColor.withOpacity(0.2),
+                        fontSize: 120.0,
+                        //Theme.of(context).textTheme.titleLarge?.fontSize,
+                      ),
+                    ),
+                    Text(
+                      pokemonBasicInfo.name,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: constants.pokemonNameLightThemeColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 35.0,
+                        //Theme.of(context).textTheme.titleLarge?.fontSize,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               Align(
                 alignment: Alignment.centerRight,
                 child: Padding(
@@ -91,34 +119,6 @@ class _PokemonCardItemState extends State<PokemonCardItem> {
                           const Icon(Icons.error),
                     ),
                   ),
-                ),
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                margin: const EdgeInsetsDirectional.symmetric(horizontal: 20.0),
-                child: Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    Text(
-                      widget.id,
-                      style: TextStyle(
-                        color:
-                            constants.pokemonIdDarkThemeColor.withOpacity(0.2),
-                        fontSize: 100.0,
-                        //Theme.of(context).textTheme.titleLarge?.fontSize,
-                      ),
-                    ),
-                    Text(
-                      pokemonBasicInfo.name,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        color: constants.pokemonNameLightThemeColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 35.0,
-                        //Theme.of(context).textTheme.titleLarge?.fontSize,
-                      ),
-                    ),
-                  ],
                 ),
               ),
             ],
